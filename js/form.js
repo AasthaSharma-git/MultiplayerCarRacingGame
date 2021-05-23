@@ -4,13 +4,17 @@ class Form {
 
         this.title = createElement('h2');
         this.title.html('Car Racing Game');
-        this.title.position(130, 0);
+        this.title.position(displayWidth/2-50, 0);
 
         this.input = createInput("Name");
-        this.input.position(130, 160);
+        this.input.position(displayWidth/2-40,displayHeight/2-80);
 
         this.button = createButton("Play");
-        this.button.position(250, 200);
+        this.button.position(displayWidth/2+30, displayHeight/2);
+
+        this.reset = createButton("Reset");
+        this.reset.position(displayWidth-100, 20);
+
           
     }
 
@@ -34,18 +38,26 @@ class Form {
             this.input.hide();
             this.button.hide();
 
-            var name = this.input.value();
+            player.name = this.input.value();
 
             this.greetings = createElement('h3');
-            this.greetings.html("Hello" + name);
-            this.greetings.position(130, 160);
+            this.greetings.html("Hello " + player.name);
+            this.greetings.position(displayWidth/2-70, displayHeight/4);
+
             playerCount=playerCount+1;
+            player.index=playerCount;
             player.updateCount(playerCount);
+            player.update();
 
 
         });
 
+      this.reset.mousePressed(()=>{
+          game.update(0);
+          player.updateCount(0);
+          
 
+      });
 
 
 
