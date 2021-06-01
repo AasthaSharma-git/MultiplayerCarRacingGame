@@ -47,6 +47,19 @@ class Form {
             playerCount=playerCount+1;
             player.index=playerCount;
             player.updateCount(playerCount);
+
+            if(playerCount===1){
+                player.xPos=375;
+             }
+            if(playerCount===2){
+                player.xPos=575;
+            }
+            if(playerCount===3){
+                player.xPos=775;
+            }
+            if(playerCount===4){
+                player.xPos=975;
+            }
             player.update();
 
 
@@ -55,6 +68,8 @@ class Form {
       this.reset.mousePressed(()=>{
           game.update(0);
           player.updateCount(0);
+          finishedPlayers=-1;
+          player.updateFinishedPlayers();
           
 
       });

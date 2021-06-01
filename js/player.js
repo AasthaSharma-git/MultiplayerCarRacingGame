@@ -4,6 +4,8 @@ class Player{
        this.index=null;
        this.name=null;
        this.distance=0;
+       this.xPos=0;
+       this.rank=0;
 
     }
 
@@ -19,6 +21,16 @@ class Player{
         
       }
 
+      getFinishedPlayers(){
+        var finishedPlayersRef=database.ref('finishedPlayers');
+        finishedPlayersRef.on("value", function(data){
+             finishedPlayers=data.val();
+        })
+
+
+
+      }
+
 
      updateCount(count){
            database.ref('/').update({
@@ -32,7 +44,10 @@ class Player{
           var playerIndex="player"+player.index;
           database.ref(playerIndex).update({
                name:this.name,
-               distance:this.distance
+               distance:this.distance,
+               xPos:this.xPos,
+               rank:this.rank,
+               screenSize:displayHeight
           });
           
      }
@@ -46,6 +61,13 @@ class Player{
           });
 
          
+     }
+
+     static updateFinishedPlayers(){
+
+          database.ref('/').update({
+               finishedPlayers:finishedPlayers+1
+          })
      }
 
 
