@@ -101,14 +101,8 @@ class Game{
             else{
                
                fill('white');
-               var diff=displayHeight-allPlayers[playerIndex].screenSize;
-               if(diff>0){
-                  cars[i-1].y=y-diff;
-               }
-               else{
-                  cars[i-1].y=y+diff;
-               }
-
+               y=allPlayers[playerIndex].screenSize-allPlayers[playerIndex].distance;
+               cars[i-1].y=y;
                
               
             }
