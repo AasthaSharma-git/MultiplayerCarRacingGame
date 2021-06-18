@@ -27,7 +27,7 @@ function preload(){
    trackImg=loadImage('images/track.jpg');  
    obsImg=loadImage('images/f1.png');
    slidingSound=loadSound('sound/sliding.mp3');
-   goldImg=loadImage('images/gold.png');
+   goldImg=loadImage('images/gold.png');//Changes
    silverImg=loadImage('images/silver.png');
    bronzeImg=loadImage('images/bronze.png');
 }
