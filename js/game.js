@@ -88,25 +88,18 @@ class Game{
             x=allPlayers[playerIndex].xPos;
             y=displayHeight-allPlayers[playerIndex].distance;
             cars[i-1].x=x;
-           
+            cars[i-1].y=y;
           
            if(player.index===i){
                
                fill('red');
-               cars[i-1].y=y;
+               
                camera.position.x=displayWidth/2;
                camera.position.y=cars[i-1].y;
               
             }
             else{
                fill('white');
-             var diff=displayHeight-allPlayers[playerIndex].screenSize;
-               if(diff>0){
-                  cars[i-1].y=y-diff;
-               }
-               else{
-                  cars[i-1].y=y+diff;
-               }
                
               
             }
